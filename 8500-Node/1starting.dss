@@ -1,0 +1,10 @@
+ClearAll
+Compile (master.dss)
+
+New Energymeter.m1 Line.ln5815900-1 1
+New "Monitor.dvi" Element= "Generator.G_m1125934"    Terminal=1  Mode=0
+New "Monitor.dpq" Element= "Generator.G_m1125934"    Terminal=1  Mode=1
+Set Maxiterations=20     
+
+//solve steady state solution
+Solve

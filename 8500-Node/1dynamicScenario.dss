@@ -1,0 +1,24 @@
+//New stuff i put in for dynamics
+//-----------------------------------------------------
+//-----------------------------------------------------
+
+Set mode=dynamic h=0.001 number=1000 
+Solve
+
+// Add the fault to bus HTand run 70 ms
+New fault.F1 phases=3 Bus1=m1209749
+Solve number=1
+
+// Clear fault by opening Circuit 2
+Disable Fault.F1
+Open Line.LN5896826-1
+
+// Run simulation out to 5000ms
+Solve Number=3914  ! run 2 s
+
+//Results
+//Plot monitor object= dvi
+Plot monitor object= dpq
+
+//-----------------------------------------------------
+//-----------------------------------------------------
