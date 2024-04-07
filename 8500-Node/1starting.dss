@@ -1,5 +1,5 @@
 ClearAll
-Compile (master.dss)
+Compile (Master.dss)
 
 New Energymeter.m1 Line.ln5815900-1 1
 New "Monitor.dvi" Element= "Generator.G_m1125934"    Terminal=1  Mode=0
