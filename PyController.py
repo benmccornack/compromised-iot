@@ -53,10 +53,18 @@ if dss.ActiveCircuit.Solution.Converged == True: # need to check if the "PV" i a
     dss.Text.Command = "Disable Fault.F1"
     dss.Text.Command = "Open Line.LN5896826-1"
     dss.Text.Command = "Solve Number=3914"
+
+    dss.Plotting.enable(show=False)
     dss.Text.Command = "Plot Circuit Power Max=9000 dots=n labels=n  C1=Blue  1ph=3   ! $00FF0000"
     #dss.Text.Command = "plot circuit Losses Max=50 dots=n labels=n subs=y C1=Blue"
     dss.Text.Command = "plot profile ph=all"
     dss.Text.Command = "Plot monitor object= dpq"
+
+    dss.Plotting.enable(show=True)
+    dss.Text.Command = "plot"
+    
+    
+
 
 else:
     print("-------------------")
