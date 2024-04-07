@@ -47,7 +47,20 @@ dss.ActiveCircuit.Solution.MaxControlIterations = 300
 dss.Text.Command = "Solve"
 if dss.ActiveCircuit.Solution.Converged == True: # need to check if the "PV" i added cause the program to diverge.
     dss.Text.Command = "Set mode=dynamic h=0.001 number=1000"
-    dss.Text.Command = "Solve"
+    iterations = 1
+    steps = 5000
+    for i in range(iterations): #cycle power supply attack
+        #Turn off every power supply
+        for load_name in dss.ActiveCircuit.Loads.AllNames:
+            dss.Text.Command = f"Edit Load.{load_name} kW=0"
+        dss.Text.Command = f"Solve Number={steps}"
+        
+        #Turn them back on
+        for load_name in dss.ActiveCircuit.Loads.AllNames:
+            # Restore the original kW value from the dataframe
+            original_kw = loadDF.loc[loadDF['PVName'] == load_name]['kw'].values
+            dss.Text.Command = f"Edit Load.{load_name} kW={original_kw}"
+        dss.Text.Command = f"Solve Number={steps}"
     dss.Text.Command = "New fault.F1 phases=3 Bus1=m1209749"
     dss.Text.Command = "Solve number=63"
     dss.Text.Command = "Disable Fault.F1"
