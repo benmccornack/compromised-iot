@@ -33,7 +33,7 @@ for iload in dss.ActiveCircuit.Loads.AllNames:
     tempName.append(temp["PVName"])
     if count < 20: # I used generators origionally and adding 2000 generators was causing the calculations to diverge so this was to limit that, it is an artifact of past times but im leaving just incase i need it
         #dss.Text.Command = f"New   "Generator.{temp["PVName"]}"  Bus1={temp["Bus1"]}  kW=3 PF=1  kVA=3  kV={temp["kv"]}  Xdp=0.27  Xdpp=0.2  H=2 Conn=Delta"
-        dss.Text.Command = f"New Load.{temp["PVName"]} Bus1={temp["Bus1"]} Phases=1 Conn=Wye Model=1 kV={temp["kv"]} kW=0"
+        dss.Text.Command = f'New Load.{temp["PVName"]} Bus1={temp["Bus1"]} Phases=1 Conn=Wye Model=1 kV={temp["kv"]} kW=0'
         #count += 1
 
     LoadInformation.append(temp)
