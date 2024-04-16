@@ -8,7 +8,7 @@ New "Transformer.G_m1125934"  XHL=5.75  kVA=1000  Conns=[wye, Delta]
 New  Reactor.G_m1125934  Phases=1  Bus1=190-7361.4  R=0.001  X=0  !Neutral Reactor/Resistor
 
 // Generator definition
-New   "Generator.G_m1125934"  Bus1=G_190-7361  kW=1000  PF=1  kVA=1000  kV=0.48  Xdp=0.27  Xdpp=0.2  H=2 Conn=Delta
+New   "Generator.G_m1125934"  D=3 Bus1=G_190-7361  kW=1000  PF=1  kVA=1000  kV=0.48  Xdp=0.27  Xdpp=0.2  H=2 Conn=Delta
 
 
 
